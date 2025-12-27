@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "interesting-mod",
+	"version": "1.0.0",
+	"name": "interesting mod",
+	"description": "Mod",
+	"authors": [
+		"rubfiber"
+	],
+	"contact": {
+		"homepage": "https://rubfiber.github.io/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/interesting-mod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"rubfiber.interestingmod.InterestingMod"
+		],
+		"client": [
+			"rubfiber.interestingmod.InterestingModClient"
+		],
+		"fabric-datagen": [
+			"rubfiber.interestingmod.InterestingModDataGenerator"
+		]
+	},
+	"mixins": [
+		"interesting-mod.mixins.json",
+		{
+			"config": "interesting-mod.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
