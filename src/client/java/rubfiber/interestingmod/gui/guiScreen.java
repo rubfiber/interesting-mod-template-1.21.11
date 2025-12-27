@@ -5,10 +5,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 
-import net.minecraft.client.gui.components.MultiLineLabel;
-import net.minecraft.client.gui.components.OptionsList;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.gui.screens.options.OptionsSubScreen;
 import net.minecraft.client.input.CharacterEvent;
 import net.minecraft.client.input.KeyEvent;
 import net.minecraft.client.input.MouseButtonEvent;
@@ -71,12 +68,17 @@ public class guiScreen extends Screen {
         nameBox.setVisible(false);
         nameBox.setFocused(false);
         nameBox.setValue("My Waypoint");
-       // colorList = new OptionsList(this.minecraft, 40, OptionsSubScreen.);
 
+        ColorChangerWidget colorChangerWidget = new ColorChangerWidget(300, 300, 100, 100, font);
+        colorChangerWidget.setVisible(false);
+        this.addRenderableWidget(colorChangerWidget);
         Button buttonWidget = Button.builder(Component.nullToEmpty("Create waypoint"), (btn) -> {
             nameBox.setVisible(true);
             nameBox.setFocused(true);
+            colorChangerWidget.setVisible(true);
             String name = nameBox.getValue();
+
+
             // When the button is clicked, we can display a toast to the screen.
 
             //this.minecraft.getToastManager().addToast(
@@ -95,7 +97,7 @@ public class guiScreen extends Screen {
 
 
     @Override
-    public void render(GuiGraphics context, int mouseX, int mouseY, float delta) {
+    public void render(@NonNull GuiGraphics context, int mouseX, int mouseY, float delta) {
         super.render(context, mouseX, mouseY, delta);
 
         // Minecraft doesn't have a "label" widget, so we'll have to draw our own text.
