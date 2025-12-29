@@ -27,8 +27,8 @@ public class ColorChangerWidget extends AbstractWidget {
 
     @Override
     protected void renderWidget(@NonNull GuiGraphics context, int mouseX, int mouseY, float delta) {
-        int rectangleX = 350;
-        int rectangleY = 125;
+        int rectangleX = 375;
+        int rectangleY = 120;
         int rectangleWidth = 25;
         int rectangleHeight = 25;
 
@@ -36,6 +36,13 @@ public class ColorChangerWidget extends AbstractWidget {
 // x1, y1, x2, y2, color
         if (visible) {
             context.drawString(font, "RGB Value adjuster", 250, 125 - this.font.lineHeight - 10, 0xFFFFFFFF, true);
+
+            context.drawString(font, "R", 190, 148 - this.font.lineHeight - 10, 0xFFFFFFFF, true);
+            context.drawString(font, "G", 250, 148 - this.font.lineHeight - 10, 0xFFFFFFFF, true);
+            context.drawString(font, "B", 310, 148 - this.font.lineHeight - 10, 0xFFFFFFFF, true);
+
+
+
             context.fill(rectangleX, rectangleY, rectangleX + rectangleWidth, rectangleY + rectangleHeight, color);
         }
 
